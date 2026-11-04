@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#111b24"><meta name="description" content="A practical AI health-navigation tutorial inspired by Peter Yang: organize records, prepare appointments, research responsibly, and protect quality of life."><title>AI Health Navigation — A practical guide</title><style>:root{color-scheme:dark;--bg:#0c141c;--panel:#121e28;--panel2:#172630;--line:#2c3b47;--text:#eef2ef;--muted:#afbdc8;--accent:#b4dfbd;--blue:#9bc7e9;--amber:#f0ca91;--ink:#102319;--radius:18px}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,textarea{font:inherit}a{color:var(--blue);text-underline-offset:4px}button,a,input,textarea{outline-offset:5px}button{border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--text);padding:11px 17px;cursor:pointer;transition:background .2s,border-color .2s}button:hover{background:#22323d;border-color:#658173}button.primary{background:var(--accent);color:var(--ink);border-color:var(--accent);font-weight:650}button.primary:hover{background:#d0efd5}button.quiet{background:none;border:0;color:var(--muted);padding:6px}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--accent)}[hidden]{display:none!important}.skip{position:absolute;top:-100px;left:20px;background:var(--text);color:var(--bg);z-index:20;padding:10px}.skip:focus{top:10px}.top{max-width:1400px;margin:auto;padding:25px 5%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);gap:24px}.brand{display:flex;align-items:center;gap:12px;color:var(--text);text-decoration:none;font-weight:600;line-height:1.3}.brand-mark{display:grid;place-content:center;font-size:32px;background:var(--accent);color:var(--ink);width:42px;height:42px;border-radius:12px;font-weight:400}.brand-sub{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:5px;font-weight:400}.top-links{display:flex;align-items:center;gap:25px;font-size:13px}.top-links a{color:var(--muted);text-decoration:none}.hero-wrap{background:radial-gradient(ellipse at 85% 25%,#1c313a77,transparent 65%)}.hero{max-width:1400px;margin:auto;padding:82px 5% 68px;display:grid;grid-template-columns:1.05fr 1fr;gap:7%;align-items:center}.eyebrow{font-size:11px;letter-spacing:.13em;font-weight:650;color:var(--accent);line-height:1.6;margin:0 0 15px}h1,h2,h3{line-height:1.12;letter-spacing:-.035em;margin-top:0}h1{font:500 clamp(44px,5.1vw,74px)/1.07 Georgia,serif;letter-spacing:-.04em;margin-bottom:24px}h1 em{color:var(--accent);font-weight:400}h2{font:400 clamp(30px,3.1vw,44px)/1.13 Georgia,serif;letter-spacing:-.03em;margin-bottom:18px}h3{font-size:23px;line-height:1.25}p{margin:0 0 18px}.lead{font-size:19px;color:var(--muted);max-width:550px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:27px 0}.fine{font-size:12px;color:var(--muted);line-height:1.6}.hero .fine{max-width:490px}.hero-visual{padding:26px 26px 18px;border:1px solid #3c505c;border-radius:22px;background:linear-gradient(140deg,#1e3039,#13212b);box-shadow:0 26px 60px #0004;transform:rotate(1deg)}.visual-label{font-size:10px;letter-spacing:.16em;color:var(--muted);margin-bottom:22px}.stack{position:relative;height:77px;margin:0 10px}.record{border:1px solid #506471;border-radius:7px;font-size:10px;letter-spacing:.1em;padding:9px 14px;background:#263b47;position:absolute;width:75%;display:flex;justify-content:space-between}.record span{color:var(--muted);letter-spacing:0}.r1{left:3%;top:0;transform:rotate(-5deg)}.r2{left:15%;top:17px;transform:rotate(2deg)}.r3{left:7%;top:38px}.connector{display:flex;justify-content:space-around;height:30px;padding:0 20%;overflow:hidden}.connector i{width:1px;background:linear-gradient(transparent,var(--accent));height:100%;transform-origin:top;animation:flow 3s ease-in-out infinite}.connector i:nth-child(2){animation-delay:.6s}.connector i:nth-child(3){animation-delay:1.2s}.brief-visual{border:1px solid #78918488;border-radius:10px;background:#142a29;padding:18px 20px;transform:rotate(-1deg)}.brief-label{display:flex;justify-content:space-between;gap:8px;font-size:9px;letter-spacing:.09em;margin-bottom:15px;color:var(--accent)}.brief-label b{font-weight:400;background:#b4dfbd18;padding:0 6px;border-radius:4px;letter-spacing:0}.brief-visual strong{font:400 25px Georgia,serif;display:block;margin-bottom:13px}.factline{font-size:11px;color:#c5d3d5;margin:7px 0;display:flex;gap:8px;align-items:center}.dot{width:6px;height:6px;display:inline-block;border-radius:50%}.green{background:var(--accent)}.amber{background:var(--amber)}.line-art{height:4px;width:77%;background:#56716b66;border-radius:5px;margin-top:16px}.line-art.short{width:50%;margin-top:8px}.actions-strip{display:flex;justify-content:space-between;font-size:11px;margin-top:20px;padding-top:12px;border-top:1px solid #56716b66;color:var(--accent)}.actions-strip span{color:var(--muted)}.loop-bottom{display:flex;gap:10px;justify-content:space-between;font-size:10px;margin-top:20px;color:var(--muted)}.loop-bottom span{max-width:90px;line-height:1.4}.hero-visual>p{font-size:10px;letter-spacing:.04em;color:var(--muted);text-align:center;margin:19px 0 0}.notice{max-width:1260px;margin:0 auto 30px;padding:17px 22px;border-left:3px solid var(--amber);background:#f0ca9108;color:var(--muted);font-size:13px}.notice strong{color:var(--text)}.view-nav{display:flex;max-width:1260px;margin:0 auto;border-bottom:1px solid var(--line);gap:32px;padding:0 0}.view-nav button{border:0;background:none;padding:17px 0;border-radius:0;color:var(--muted);font-size:12px;border-bottom:3px solid transparent;display:flex;gap:12px;align-items:center}.view-nav button span{font-size:15px}.view-nav button.active{color:var(--accent);border-color:var(--accent)}.content-section{max-width:1260px;margin:0 auto;padding:64px 0;border-bottom:1px solid var(--line)}.section-head{display:grid;grid-template-columns:1.2fr 1fr;gap:8%;align-items:end;margin-bottom:30px}.section-head>p{color:var(--muted);max-width:430px;font-size:15px;margin-bottom:20px}.route-tabs{display:flex;gap:8px;flex-wrap:wrap}.route-tabs button,.record-tabs button{background:none}.selected{border-color:var(--accent)!important;color:var(--accent)!important;background:#b4dfbd0c!important}.route-plan{display:grid;grid-template-columns:1fr 1fr;gap:7%;padding:32px 0 0}.route-plan h3{margin:7px 0 12px}.route-plan p{color:var(--muted);font-size:15px}.route-label{font-size:10px;letter-spacing:.13em;color:var(--muted)}.route-plan ol{margin:0;padding:0;list-style:none;counter-reset:actions}.route-plan li{counter-increment:actions;display:flex;gap:15px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}.route-plan li:before{content:counter(actions);color:var(--accent);font-size:12px;min-width:18px}.step-layout{display:grid;grid-template-columns:.8fr 1.2fr;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}.step-buttons{display:flex;flex-direction:column;background:var(--panel)}.step-buttons button{text-align:left;display:flex;gap:20px;padding:23px;border-radius:0;background:none;border:0;border-bottom:1px solid var(--line);align-items:center;font-weight:600}.step-buttons button:last-child{border-bottom:0}.step-buttons button>span{font-size:16px;font-weight:400;color:var(--muted)}.step-buttons small{display:block;font-size:12px;color:var(--muted);font-weight:400;margin-top:3px}.step-detail{padding:32px 36px;background:#14232b}.step-top{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:21px;font-size:11px;color:var(--muted)}.step-top>span{letter-spacing:.13em;color:var(--accent)}.step-detail h3{font:400 33px/1.15 Georgia,serif;margin-bottom:17px}.step-detail>p{font-size:15px;color:var(--muted)}.io{display:flex;align-items:center;gap:16px;margin:25px 0}.io>div{flex:1}.io span:not(.io-arrow){display:block;font-size:9px;letter-spacing:.15em;color:var(--accent);margin-bottom:7px}.io strong{font-size:13px;font-weight:400;display:block}.io-arrow{color:var(--muted);transform:rotate(-90deg)}.human{border-top:1px solid var(--line);padding-top:17px;font-size:13px}.human b{color:var(--amber);font-weight:500}.human p{color:var(--muted);margin:7px 0 20px}.step-detail>button{font-size:13px}.record-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.record-tabs button{text-align:left;padding:25px;display:flex;align-items:center;gap:20px}.file-shape{border:1px solid currentColor;border-radius:5px;width:34px;height:43px;display:grid;place-items:center;font-size:20px;color:var(--muted)}.record-detail{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:6%;padding:30px;background:var(--panel);border:1px solid var(--line);border-radius:12px;margin-top:18px}.record-detail h3{font-size:19px;margin:0 0 12px}.record-detail p{font-size:14px;color:var(--muted);margin:0}.record-detail span{display:block;color:var(--accent);font-size:10px;letter-spacing:.12em;margin-bottom:10px}.source{font-size:12px;color:var(--muted);margin:18px 0 0}.handoff-flow{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}.handoff-flow button{padding:14px 8px;position:relative;font-size:12px}.handoff-flow button:before{content:attr(data-number);display:block;font-size:10px;color:var(--muted);margin-bottom:8px}.handoff-note{display:flex;gap:25px;align-items:start;padding:30px 0 12px;min-height:155px}.handoff-note>span{font:400 42px/1 Georgia,serif;color:var(--accent);min-width:55px}.handoff-note h3{font-size:22px;margin:0 0 10px}.handoff-note p{font-size:15px;color:var(--muted);max-width:760px}.evidence-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:9%;align-items:center}.evidence label{display:flex;justify-content:space-between;gap:12px;font-size:14px}.evidence output{color:var(--accent);font-variant-numeric:tabular-nums}.evidence input{width:100%;accent-color:var(--accent);margin:25px 0 15px;cursor:pointer}.risk-chart{margin:20px 0}.bar-label{display:flex;justify-content:space-between;font-size:13px;margin:18px 0 8px;color:var(--muted)}.bar-label b{color:var(--text);font-weight:400}.bar-track{height:28px;border-radius:4px;background:#91acb217;overflow:hidden}.bar-track>div{height:100%;background:var(--blue);border-radius:4px;transition:width .35s}.bar-track #after-bar{background:var(--accent)}.axis{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-top:10px}.risk-results{padding:10px 0}.risk-results>div{padding:15px 0;border-bottom:1px solid var(--line)}.risk-results span{font-size:10px;letter-spacing:.12em;color:var(--muted);display:block}.risk-results strong{font-size:23px;font-weight:400;letter-spacing:-.02em}.risk-results>div:first-child strong{color:var(--accent)}.week-list{border-top:1px solid var(--line)}.week-list>div{display:grid;grid-template-columns:200px 1fr;padding:19px 0;gap:25px;border-bottom:1px solid var(--line);font-size:15px}.week-list b{font-weight:500;color:var(--accent)}.week-list span{color:var(--muted)}.privacy-note{padding:17px 20px;background:#b4dfbd09;border-left:3px solid var(--accent);font-size:13px;color:var(--muted)}.builder-actions{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0;font-size:13px}.builder-grid{display:grid;grid-template-columns:1fr 1fr;gap:5%;align-items:start}.builder-grid label{display:block;font-size:13px;margin-bottom:20px;color:var(--muted)}input:not([type=range]),textarea{display:block;width:100%;border:1px solid var(--line);border-radius:8px;background:#101b24;color:var(--text);padding:12px;margin-top:7px;font-size:15px;resize:vertical;line-height:1.5}textarea::placeholder,input::placeholder{color:#7f929f;font-size:13px}fieldset{border:1px solid var(--line);border-radius:10px;padding:20px;margin:0 0 20px}legend{color:var(--accent);font-size:13px;padding:0 8px}.brief-preview{background:#18272d;border:1px solid #52635c;border-radius:14px;padding:25px;position:sticky;top:20px}.preview-top{display:flex;justify-content:space-between;align-items:center;font-size:10px;letter-spacing:.1em;color:var(--amber);gap:10px}.preview-top button{font-size:12px;padding:6px 9px;letter-spacing:0}#brief-output{white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.8 ui-monospace,SFMono-Regular,Consolas,monospace;margin:25px 0;color:var(--text)}.reference-layout{display:grid;grid-template-columns:260px minmax(0,820px);gap:6%;max-width:1260px;margin:auto;padding:50px 0}.contents{position:sticky;top:20px;height:max-content}.contents nav{display:flex;flex-direction:column}.contents nav a{font-size:12px;text-decoration:none;display:flex;gap:13px;color:var(--muted);padding:9px 0;line-height:1.4}.contents nav a span{font-size:10px;color:#81959f;min-width:18px}.contents nav a:hover{color:var(--accent)}.contents>button{margin:23px 0 10px;font-size:12px}.download-link{display:block;font-size:12px}.reference-intro{font-size:18px;color:var(--muted);padding-bottom:30px;border-bottom:1px solid var(--line)}.chapter{padding:30px 0;border-bottom:1px solid var(--line);scroll-margin-top:30px}.chapter h2{font-size:36px}.chapter h3{font-family:inherit;letter-spacing:-.015em;font-size:22px;margin:33px 0 16px}.reference p,.reference li{font-size:15px;color:#c8d2da}.reference p strong,.reference li strong{color:var(--text);font-weight:600}.reference li{margin:12px 0}.reference ul,.reference ol{padding-left:22px}.reference pre{background:#162731;border:1px solid #365160;border-radius:10px;padding:23px;position:relative;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.7;font-size:13px;margin:27px 0}.reference pre code{font:inherit}.copy-prompt{display:block;margin-top:17px;font-size:11px;padding:5px 10px}.reference :not(pre)>code{background:#253340;padding:2px 5px;border-radius:3px;font-size:13px;color:var(--accent)}.table-scroll{overflow:auto;margin:25px 0;border:1px solid var(--line);border-radius:10px}table{border-collapse:collapse;width:100%;font-size:13px;text-align:left;min-width:520px}th{background:#1a2a34;color:var(--accent);font-weight:500}td{color:#c7d2da}th,td{padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:top}tr:last-child td{border-bottom:0}footer{max-width:1260px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:25px;padding:45px 0;color:var(--muted);font-size:12px}footer strong{color:var(--text);font-size:16px;font-weight:500}footer>div:nth-child(2){display:flex;gap:20px;justify-content:end;align-items:start;flex-wrap:wrap}footer>p{grid-column:1/-1;font-size:10px;border-top:1px solid var(--line);padding-top:20px}footer .quiet{font-size:12px;padding:0;color:var(--blue);text-decoration:underline;text-underline-offset:4px}#toast{position:fixed;bottom:25px;left:50%;transform:translateX(-50%);background:var(--accent);color:var(--ink);border-radius:8px;padding:10px 20px;font-size:13px;box-shadow:0 5px 25px #0008;opacity:0;pointer-events:none;transition:opacity .2s}#toast.show{opacity:1}@keyframes flow{0%,100%{opacity:.3}50%{opacity:1}}.no-motion *{animation:none!important;transition:none!important;scroll-behavior:auto!important}@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media(max-width:1400px){.content-section,.view-nav,.notice,.reference-layout,footer{margin-left:5%;margin-right:5%}}@media(max-width:900px){.hero{gap:5%;padding-top:55px}.hero-visual{padding:20px 16px}.top-links{gap:15px}.top-links a:first-child{display:none}.step-layout{grid-template-columns:.85fr 1.15fr}.step-detail{padding:25px}.reference-layout{grid-template-columns:190px minmax(0,1fr);gap:5%}.section-head{gap:6%}.record-tabs button{padding:20px 15px;gap:12px}.record-detail{gap:5%;padding:25px}.handoff-flow{grid-template-columns:repeat(3,1fr)}.preview-top{align-items:start;flex-direction:column}.brief-preview{padding:20px}}
+@media(max-width:650px){.top{padding:20px 5%}.top-links a{display:none}.brand-sub{font-size:9px}.top-links{font-size:11px}.hero{grid-template-columns:1fr;padding-top:40px;padding-bottom:35px;gap:30px}.hero h1{font-size:48px}.hero .lead{font-size:17px}.hero-visual{max-width:480px;transform:none}.hero-visual .brief-visual{transform:none}.hero .fine{font-size:11px}.notice{font-size:12px;margin-bottom:15px}.view-nav{gap:18px}.view-nav button{gap:4px;flex-direction:column;align-items:start;flex:1}.view-nav button span{font-size:12px}.content-section{padding-top:40px;padding-bottom:40px}.section-head{grid-template-columns:1fr;gap:0;margin-bottom:20px}.section-head>p{font-size:14px;margin-bottom:10px;max-width:none}.route-tabs{gap:6px}.route-tabs button{font-size:12px;padding:9px 10px}.route-plan{grid-template-columns:1fr;gap:12px;padding-top:25px}.step-layout{grid-template-columns:1fr}.step-buttons{display:grid;grid-template-columns:1fr 1fr}.step-buttons button{padding:15px 13px;gap:11px;font-size:12px;border-right:1px solid var(--line);min-height:77px}.step-buttons button:last-child{grid-column:1/-1;border-bottom:1px solid var(--line)}.step-buttons button>span{font-size:12px}.step-buttons small{font-size:10px}.step-detail{padding:25px 22px}.step-detail h3{font-size:29px}.record-tabs{gap:7px}.record-tabs button{padding:13px 6px;font-size:11px;display:flex;flex-direction:column;gap:8px;text-align:center}.file-shape{width:28px;height:33px;font-size:17px}.record-detail{grid-template-columns:1fr;gap:23px;padding:24px}.handoff-flow{gap:7px}.handoff-flow button{font-size:11px}.handoff-note{gap:15px}.handoff-note>span{font-size:32px;min-width:35px}.handoff-note p{font-size:14px}.evidence-grid{grid-template-columns:1fr;gap:0}.risk-results{display:grid;grid-template-columns:1fr 1fr;gap:15px}.risk-results>div:first-child{grid-column:1/-1;padding-top:0}.risk-results strong{font-size:21px}.week-list>div{grid-template-columns:1fr;gap:4px;font-size:14px}.builder-grid{grid-template-columns:1fr}.brief-preview{position:static;margin-top:20px}.builder-actions button{font-size:12px}.reference-layout{grid-template-columns:1fr;padding-top:30px}.contents{position:static;border-bottom:1px solid var(--line);padding-bottom:25px;margin-bottom:30px}.contents nav{display:grid;grid-template-columns:1fr 1fr;gap:0 20px}.contents nav a{font-size:11px}.reference-intro{font-size:16px}.chapter h2{font-size:30px}.reference p,.reference li{font-size:15px}.reference pre{padding:18px;font-size:12px}.reference-layout table{min-width:560px}.hero-actions button{font-size:13px}.preview-top{flex-direction:row;align-items:center}footer{grid-template-columns:1fr}footer>div:nth-child(2){justify-content:start}footer>p{grid-column:1}input:not([type=range]),textarea{font-size:16px}}
+@media print{html{color-scheme:light}body{background:#fff;color:#111;font-size:11px}.top,.hero-wrap,.notice,.view-nav,footer,.contents,.copy-prompt,.builder-actions,.preview-top button,#toast{display:none!important}.view:not([hidden]){display:block!important}.reference-layout{display:block;margin:0;padding:0}.reference p,.reference li,td{color:#222}.chapter{break-inside:auto;border-color:#ddd}.chapter h2{font-size:24px;break-after:avoid}.chapter h3{font-size:17px;break-after:avoid}a{color:#123}.reference pre{background:#f5f5f5;border-color:#ddd;font-size:10px}.table-scroll{overflow:visible}table{min-width:0;font-size:9px}th,td{padding:7px}th{background:#eee;color:#111}.builder-grid{display:block}.builder-grid form,.builder-view .section-head,.privacy-note{display:none}.brief-preview{position:static;border:0;background:white;color:#111}#brief-output{color:#111;font-size:11px}.brief-preview>.fine{display:none}.content-section{margin:0;padding:0;border:0}.preview-top{color:#555}.builder-grid form{display:none!important}}
+</style></head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><a href="#" class="brand" aria-label="Health navigation home"><span class="brand-mark" aria-hidden="true">+</span><span>Health navigation<span class="brand-sub">A practical AI field guide</span></span></a><div class="top-links"><a href="https://www.youtube.com/watch?v=Ddc5NFNnCfE">Peter’s video ↗</a><button type="button" class="quiet" id="motion">Motion on</button></div></header>
+<main id="main">
+<div class="hero-wrap"><section class="hero"><div><p class="eyebrow">FROM PETER YANG’S FIVE STEPS TO EVERYDAY HEALTH</p><h1>Better prepared.<br><em>Better coordinated.</em></h1><p class="lead">Use AI to turn medical records, open questions, and follow-ups into a manageable plan — with your care team.</p><div class="hero-actions"><button class="primary" data-view="learn">Explore the five steps <span aria-hidden="true">↓</span></button><button data-view="builder">Build a health brief</button></div><p class="fine">Grounded in the full video transcript, Peter’s open-source workflow, and official health resources. Reviewed November 4, 2026.</p></div>
+<div class="hero-visual" role="img" aria-label="Original records feed a verified health brief, which supports questions and agreed actions. New results update the brief."><div class="visual-label">THE CARE COORDINATION LOOP</div><div class="stack"><div class="record r1">LAB RESULTS <span>original</span></div><div class="record r2">VISIT NOTES <span>original</span></div><div class="record r3">REPORTS <span>original</span></div></div><div class="connector"><i></i><i></i><i></i></div><div class="brief-visual"><div class="brief-label">ONE LIVING BRIEF <b>Human verified</b></div><strong>What do we know?</strong><div class="factline"><span class="dot green"></span>Confirmed facts + source dates</div><div class="factline"><span class="dot amber"></span>Pending results + open questions</div><div class="line-art"></div><div class="line-art short"></div><div class="actions-strip">3 next actions <span>Owner · Date · Done</span></div></div><div class="loop-bottom"><span>Ask better questions</span><span>Confirm the plan</span><span>Update with new results</span></div><p>Information → understanding → a verified next step</p></div></section></div>
+<aside class="notice"><strong>Use this for preparation and coordination.</strong> AI can make factual mistakes. Clinicians guide medical decisions. For severe or life-threatening symptoms, call emergency services; follow your team’s urgent-symptom instructions.</aside>
+<nav class="view-nav" aria-label="Guide views"><button data-view="learn" class="active" aria-pressed="true">01 <span>Explore the workflow</span></button><button data-view="builder" aria-pressed="false">02 <span>Build your brief</span></button><button data-view="reference" aria-pressed="false">03 <span>Read the full reference</span></button></nav>
+
+<div class="view" id="learn-view">
+<section class="content-section"><div class="section-head"><div><p class="eyebrow">START WITH YOUR SITUATION</p><h2>Same structure. A different next step.</h2></div><p>These pathways adapt the workflow. They do not assess symptoms or recommend treatment.</p></div><div class="route-tabs" aria-label="Choose a learning pathway"><button class="selected" data-route="cancer" aria-pressed="true">Cancer care</button><button data-route="chronic" aria-pressed="false">Ongoing condition</button><button data-route="prevention" aria-pressed="false">Prevention & maintenance</button></div><div class="route-plan" aria-live="polite"><div><span class="route-label">YOUR FIRST USEFUL OUTPUT</span><h3 id="route-title"></h3><p id="route-desc"></p></div><ol id="route-actions"></ol></div></section>
+
+<section class="content-section"><div class="section-head"><div><p class="eyebrow">PETER’S WORKFLOW</p><h2>Five steps you can use today.</h2></div><p>Select a step to see what goes in, what comes out, and what still needs a person.</p></div><div class="step-layout"><div class="step-buttons" aria-label="Select a workflow step"><button data-step="0" class="selected" aria-pressed="true"><span>01</span><div>Keep one brief<small>The current picture</small></div></button><button data-step="1" aria-pressed="false"><span>02</span><div>Organize the records<small>The evidence behind it</small></div></button><button data-step="2" aria-pressed="false"><span>03</span><div>Research the decision<small>Questions that matter now</small></div></button><button data-step="3" aria-pressed="false"><span>04</span><div>Coordinate support<small>People with clear roles</small></div></button><button data-step="4" aria-pressed="false"><span>05</span><div>Protect quality of life<small>The person beyond the task</small></div></button></div><div class="step-detail" aria-live="polite"><div class="step-top"><span id="step-tag"></span><a id="step-video" href="#">Video chapter ↗</a></div><h3 id="step-title"></h3><p id="step-desc"></p><div class="io"><div><span>INPUT</span><strong id="step-input"></strong></div><span class="io-arrow" aria-hidden="true">↓</span><div><span>OUTPUT</span><strong id="step-output"></strong></div></div><div class="human"><b>Human checkpoint</b><p id="step-human"></p></div><button id="step-read">Read the practical instructions →</button></div></div></section>
+
+<section class="content-section"><div class="section-head"><div><p class="eyebrow">STEP 2 · A COMMON BLIND SPOT</p><h2>Three kinds of records.<br>Three different requests.</h2></div><p>A scan report, the actual scan, and tissue material serve different purposes. Request what the receiving clinician needs.</p></div><div class="record-tabs" aria-label="Explore record types"><button data-record="0" class="selected" aria-pressed="true"><span class="file-shape">Aa</span>Written reports</button><button data-record="1" aria-pressed="false"><span class="file-shape">◎</span>Original images</button><button data-record="2" aria-pressed="false"><span class="file-shape">▥</span>Pathology material</button></div><div id="record-detail" class="record-detail" aria-live="polite"></div><p class="source">Based on <a href="https://github.com/petergyang/fuck-cancer/blob/main/skills/fuck-cancer/SKILL.md">Peter’s records workflow</a>. Processes and timing vary by institution.</p></section>
+
+<section class="content-section"><div class="section-head"><div><p class="eyebrow">FOLLOW THROUGH · ADDED PRACTICE</p><h2>“Sent” is one step.<br>“Reviewed” closes the handoff.</h2></div><p>A fictional referral illustrates why a complete action needs an owner, a date, and confirmation.</p></div><div class="handoff-flow" id="handoff-buttons" aria-label="Explore handoff stages"></div><div class="handoff-note" aria-live="polite"><span id="handoff-index"></span><div><h3 id="handoff-title"></h3><p id="handoff-text"></p></div></div><p class="fine">This is an administrative teaching example. It does not determine medical urgency.</p></section>
+
+<section class="content-section evidence"><div class="section-head"><div><p class="eyebrow">STEP 3 · AN EVIDENCE EXERCISE</p><h2>“20% lower risk”<br>still needs a denominator.</h2></div><p>Invented numbers, not a treatment estimate. See how baseline risk changes absolute benefit at a fixed 20% relative reduction.</p></div><div class="evidence-grid"><div><label for="baseline">Illustrative baseline risk <output id="base-value">10 in 100</output></label><input id="baseline" type="range" min="1" max="50" step="1" value="10"><div class="risk-chart" role="img" aria-label="Baseline versus illustrative risk after a 20 percent relative reduction"><div class="bar-label"><span>Baseline</span><b id="risk-before">10 in 100</b></div><div class="bar-track"><div id="before-bar"></div></div><div class="bar-label"><span>After intervention</span><b id="risk-after">8 in 100</b></div><div class="bar-track"><div id="after-bar"></div></div><div class="axis"><span>0</span><span>25</span><span>50 in 100</span></div></div></div><div class="risk-results" aria-live="polite"><div><span>RELATIVE REDUCTION</span><strong>20%</strong></div><div><span>ABSOLUTE REDUCTION</span><strong id="absolute">2 percentage points</strong></div><div><span>NUMBER NEEDED TO TREAT</span><strong id="nnt">50</strong></div></div></div><p class="fine">Number needed to treat = 1 ÷ absolute risk reduction expressed as a fraction, rounded up. The comparison requires the same population, outcome, and time period. Benefits do not capture harms, burdens, or uncertainty.</p></section>
+
+<section class="content-section"><div class="section-head"><div><p class="eyebrow">PUT IT INTO PRACTICE</p><h2>Use one appointment cycle.</h2></div><p>Measure whether facts were verified and handoffs completed. A longer AI answer is not the goal.</p></div><div class="week-list"><div><b>Today</b><span>Create the brief. Verify the essentials. Pick three actions.</span></div><div><b>Before the visit</b><span>Gather the required records. Choose the three questions.</span></div><div><b>After the visit</b><span>Clarify instructions. Record the owner and date of each action.</span></div><div><b>End of week</b><span>Check open handoffs. Protect an activity the person values.</span></div></div><div class="hero-actions"><button class="primary" data-view="builder">Start a brief</button><button data-view="reference">Read the complete tutorial</button></div></section>
+</div>
+
+<div class="view" id="builder-view" hidden><section class="content-section"><div class="section-head"><div><p class="eyebrow">PRACTICAL TEMPLATE · NO AI CALL</p><h2>Your next conversation,<br>on one page.</h2></div><p>This formatter does not interpret medical information. Use a nickname or leave identifiers out. Verify the draft before use.</p></div><p class="privacy-note">Your entries stay in this page’s current memory. No upload, account, analytics, or automatic saving. Reloading clears the fields. Downloading creates a file on your device.</p><div class="builder-actions"><button id="sample">Load fictional example</button><button id="clear">Clear fields</button><button id="blank-template">Download blank template</button></div><div class="builder-grid"><form id="brief-form" autocomplete="off"><label for="brief-name">Brief label <input id="brief-name" placeholder="e.g. My health brief" maxlength="100"></label><label for="brief-goal">Decision or goal for the next visit <textarea id="brief-goal" rows="2" placeholder="What do you need to understand or agree on?"></textarea></label><label for="brief-facts">Known facts and their sources <textarea id="brief-facts" rows="4" placeholder="Finding · report name · date · page or section"></textarea></label><label for="brief-pending">Pending results and open questions <textarea id="brief-pending" rows="3" placeholder="What is pending? Who will review it, and by when?"></textarea></label><label for="brief-meds">Medicines and allergies to verify <textarea id="brief-meds" rows="3" placeholder="Name · dose · route · frequency · reason · prescriber; allergies and reactions"></textarea></label><label for="brief-team">Care-team contacts and urgent instructions <textarea id="brief-team" rows="3" placeholder="Record only clinician-provided instructions; keep sensitive contact details secure."></textarea></label><fieldset><legend>Three next actions</legend><p class="fine">For each: task · owner · due date · done when</p><label for="action-1">Action 1<input id="action-1" placeholder="Confirm referral · me · Friday · clinic acknowledges receipt"></label><label for="action-2">Action 2<input id="action-2" placeholder="Task · owner · due date · completion condition"></label><label for="action-3">Action 3<input id="action-3" placeholder="Task · owner · due date · completion condition"></label></fieldset><label for="brief-values">What matters to the person <textarea id="brief-values" rows="2" placeholder="One quality-of-life priority and a valued activity"></textarea></label><label for="brief-log">Care log <textarea id="brief-log" rows="3" placeholder="Date · update · decision or remaining question"></textarea></label></form><div class="brief-preview"><div class="preview-top"><span>DRAFT · REVIEW REQUIRED</span><button id="copy-brief">Copy brief</button></div><pre id="brief-output"></pre><div class="builder-actions"><button class="primary" id="download-brief">Download brief</button><button id="print-brief">Print brief</button></div><p class="fine">Check every diagnosis, medicine, unit, and date against original records. A blank field means unknown, not normal or absent.</p></div></div></section></div>
+
+<div class="view" id="reference-view" hidden><div class="reference-layout"><aside class="contents"><p class="eyebrow">FULL REFERENCE</p><nav aria-label="Reference contents"><a href="#start-here-in-30-minutes"><span>01</span>Start here in 30 minutes</a><a href="#what-peter-actually-does"><span>02</span>What Peter actually does</a><a href="#step-1-create-one-living-health-brief"><span>03</span>Step 1 Create one living health brief</a><a href="#step-2-organize-records-and-close-the-handoffs"><span>04</span>Step 2 Organize records and close the handoffs</a><a href="#step-3-research-the-decision-that-is-actually-open"><span>05</span>Step 3 Research the decision that is actually open</a><a href="#step-4-build-a-coordinated-circle-of-support"><span>06</span>Step 4 Build a coordinated circle of support</a><a href="#step-5-protect-quality-of-life-and-family-time"><span>07</span>Step 5 Protect quality of life and family time</a><a href="#adapt-the-system-for-everyday-health"><span>08</span>Adapt the system for everyday health</a><a href="#make-every-appointment-produce-a-usable-plan"><span>09</span>Make every appointment produce a usable plan</a><a href="#protect-privacy-and-prevent-avoidable-ai-errors"><span>10</span>Protect privacy and prevent avoidable AI errors</a><a href="#your-first-week"><span>11</span>Your first week</a><a href="#what-to-explore-next"><span>12</span>What to explore next</a><a href="#sources-and-scope"><span>13</span>Sources and scope</a></nav><button id="print-guide">Print the guide</button><a class="download-link" href="index.html" download="ai-health-navigation-guide.html">Download offline HTML</a></aside><article class="reference"><p class="reference-intro">Peter’s workflow is the spine. The prevention pathway, prompts, evidence exercise, and handoff tracking are tutorial additions. Every medical claim should be checked for the reader’s own situation.</p><section class="chapter" id="start-here-in-30-minutes"><h2>Start here in 30 minutes</h2>
+<ol>
+<li><strong>Choose the decision.</strong> Write one sentence: “We need to understand the new report before Thursday’s appointment,” or “I need to agree on my preventive-care plan.” A focused question keeps research useful.</li>
+<li><strong>Choose one home.</strong> Keep a private document for the brief and a folder for original reports. A shared document works when the patient approves the people who can access it. Keep detailed identifiers out of research queries.</li>
+<li><strong>Gather the essentials.</strong> Begin with the newest relevant report, the current medication and allergy list, care-team contacts, and the next appointment. Missing information can be marked pending or unknown.</li>
+<li><strong>Generate a draft.</strong> Use the brief prompt below. Compare every medical fact against its source before using it.</li>
+<li><strong>Choose three actions.</strong> Assign a person, a date, and a completion condition to each. Schedule one activity that matters to the patient outside health administration.</li>
+</ol>
+<p><strong>Urgent symptoms come first.</strong> For severe breathing difficulty, possible stroke symptoms, severe chest pain, uncontrolled bleeding, or loss of consciousness, call 911 in the US or the local emergency number. Follow the care team’s written instructions for treatment-related symptoms; do not wait for an AI response. Ask your team in advance which symptoms require an immediate call and which number works after hours. <a href="https://medlineplus.gov/ency/article/001927.htm">Recognizing medical emergencies</a></p>
+</section>
+<section class="chapter" id="what-peter-actually-does"><h2>What Peter actually does</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Step</th>
+<th>What happens in the video</th>
+<th>Reusable output</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1 at 02:04</td>
+<td>Uses his F-Cancer skill to maintain a concise family brief and prepare appointment questions</td>
+<td>One current brief and three priorities</td>
+</tr>
+<tr>
+<td>2 at 05:13</td>
+<td>Collects written records, original scans, and pathology material across hospitals</td>
+<td>Records inventory with outstanding requests</td>
+</tr>
+<tr>
+<td>3 at 07:41</td>
+<td>Investigates usual treatment, second opinions, tumor testing, and clinical trials</td>
+<td>A short list of questions and options to review</td>
+</tr>
+<tr>
+<td>4 at 14:19</td>
+<td>Draws on expert introductions and uses AI to draft concise updates</td>
+<td>A coordinated support network</td>
+</tr>
+<tr>
+<td>5 at 15:41</td>
+<td>Makes time for visits, walks, meals, conversations, and family calls</td>
+<td>Protected time with people he loves</td>
+</tr>
+</tbody></table></div>
+<p>Peter describes administrative coordination as especially valuable. He also says his mother’s current cancer origin remains under investigation at the time of recording. The stage-three breast-cancer brief with specific markers is a hypothetical demonstration, not a confirmed description of her current diagnosis. His reported waits and approximately $4,000 planned tumor-testing expense are personal, video-time examples, not service guarantees or current price quotes. <a href="https://www.youtube.com/watch?v=Ddc5NFNnCfE">Video</a></p>
+</section>
+<section class="chapter" id="step-1-create-one-living-health-brief"><h2>Step 1 Create one living health brief</h2>
+<p>Peter’s repository organizes the brief into patient information, up to three next actions, known facts, explanations of medical terms, and a compact care log. Keep the current snapshot short enough to scan during an appointment; place detailed history and old decisions in the log. For routine health, substitute ongoing conditions, prevention decisions, and personal goals for cancer-specific details. <a href="https://github.com/petergyang/fuck-cancer">Repository</a></p>
+<h2>Set up the workspace</h2>
+<p>The simplest route is a private document plus an AI chat. Paste the current brief into each new relevant conversation, or attach it with the reports. ChatGPT Projects can keep related chats, sources, and instructions together; upload or connect the sources explicitly. A project does not automatically gain access to a folder on your computer. <a href="https://learn.chatgpt.com/docs/projects">Official OpenAI documentation</a></p>
+<p>For Peter’s packaged workflow, open his repository and review its instructions. In a compatible agent with skill-installation support, his documented installation request is:</p>
+<pre><code class="language-text">Install the /fuck-cancer skill globally from https://github.com/petergyang/fuck-cancer
+</code></pre>
+<p>His repository also documents this terminal alternative for compatible environments with Node.js and npx:</p>
+<pre><code class="language-sh">npx skills add petergyang/fuck-cancer --skill fuck-cancer --global --yes
+</code></pre>
+<p>A skill is a reusable set of instructions and resources. Installing it does not grant medical expertise, automatically connect records, or grant permission to send them. Peter’s Google Doc workflow needs a supported connected Google Drive integration; the repository also supports a local Markdown file. If your interface cannot install skills, use the prompts here directly. <a href="https://github.com/petergyang/fuck-cancer">Peter’s installation instructions</a> · <a href="https://developers.openai.com/plugins/concepts/skills">Skills explained</a></p>
+<h2>Copy this brief prompt</h2>
+<pre><code class="language-text">Help me prepare a health-navigation brief for [me / my consenting relative].
+Our immediate decision is [decision and date]. Use only the attached records and my notes for personal facts.
+
+Create these sections:
+1. Essential patient information, current medicines, allergies, and care-team contacts.
+2. Up to three next actions, each with an owner, due date, and completion condition.
+3. What we know, with document name, date, and page or section for every important fact.
+4. Plain-English definitions of unfamiliar terms.
+5. A dated care log, keeping the current snapshot separate from older history.
+
+Distinguish confirmed facts, patient-reported information, pending results, unknowns, and research hypotheses. Preserve units, dates, negations, and uncertainty. Flag conflicting records instead of resolving them by guessing. Ask only questions that could change the immediate next step. Do not diagnose, choose treatment, or invent missing information.
+</code></pre>
+<h2>Use a fact ledger behind the brief</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Illustrative entry</th>
+<th>How to handle it</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Confirmed</td>
+<td>“Biopsy report dated October 21 reports malignancy”</td>
+<td>Link the exact report and location</td>
+</tr>
+<tr>
+<td>Patient reported</td>
+<td>“More tired since starting the new medicine”</td>
+<td>Retain the person’s wording and date</td>
+</tr>
+<tr>
+<td>Pending</td>
+<td>“Additional pathology result has been ordered”</td>
+<td>Record the expected date and who will review it</td>
+</tr>
+<tr>
+<td>Unknown</td>
+<td>“Current tissue origin has not been established in available records”</td>
+<td>Turn it into a care-team question</td>
+</tr>
+<tr>
+<td>Research hypothesis</td>
+<td>“A particular test might affect the treatment discussion”</td>
+<td>Keep outside the confirmed diagnosis</td>
+</tr>
+</tbody></table></div>
+<p>These examples are fictional. “Not documented” does not mean “absent.” “No evidence of” is different from a diagnosis being excluded. A new report should change the current brief only after its meaning and relevance are checked.</p>
+<p><strong>Human check before use:</strong> patient and document match; date and specimen match; medication name, dose, route, and frequency match; units and reference ranges match; uncertainty is retained. A polished summary can still contain a consequential transcription error.</p>
+</section>
+<section class="chapter" id="step-2-organize-records-and-close-the-handoffs"><h2>Step 2 Organize records and close the handoffs</h2>
+<p>Peter separates three requests because the materials may be held by different departments. A written imaging report describes a scan; it does not replace the scan itself. DICOM means Digital Imaging and Communications in Medicine, a standard format for medical images. Pathology slides and blocks contain physical tissue material and require the laboratory’s handling process. <a href="https://github.com/petergyang/fuck-cancer/blob/main/skills/fuck-cancer/SKILL.md">Peter’s records workflow</a></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Material</th>
+<th>Ask for</th>
+<th>Likely starting contact</th>
+<th>Completion check</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Written records</td>
+<td>Pathology and imaging reports, visit notes, operative reports, treatment summaries, relevant lab results</td>
+<td>Medical records or health information management</td>
+<td>Correct patient, dates, complete pages, readable files</td>
+</tr>
+<tr>
+<td>Original imaging</td>
+<td>Relevant studies in DICOM plus associated reports</td>
+<td>Radiology image library</td>
+<td>Receiving center confirms the studies can be opened</td>
+</tr>
+<tr>
+<td>Pathology material when needed</td>
+<td>Slides, blocks, specimen identifiers, and any transfer requirements</td>
+<td>Pathology laboratory</td>
+<td>Receiving laboratory confirms receipt and adequacy</td>
+</tr>
+</tbody></table></div>
+<p>Ask each institution about its process, authorization form, cost, expected timing, and delivery method. Peter’s experience with delays motivates early requests; your hospital’s estimate is the one to track. Ask the receiving specialist what is required before requesting broad archives or transferring limited tissue.</p>
+<h2>Keep a small records index</h2>
+<p>Use folders such as Brief, Reports, Imaging, Pathology, Appointments, and Research. Name written files consistently, for example <code>2026-11-04_Hospital_PathologyReport.pdf</code>. Preserve the original file and create a separately labeled summary. Keep an index with document date, institution, record type, location, and verification status. Do not rename internal DICOM files or rearrange their structure casually.</p>
+<pre><code class="language-text">From this records index, identify the missing material needed for [appointment or decision]. Draft separate requests for written records, original imaging, and pathology material only if relevant. For each request, list the official department, authorization needed, likely delivery method, and questions about turnaround and fees. Verify contact details on the institution’s own website. Draft only; I will review and send.
+</code></pre>
+<h2>A request is complete when the handoff is verified</h2>
+<p>For each referral or test, track these states: requested, acknowledged, scheduled or processing, received, reviewed, and action agreed. Record the responsible person and the next check date. This is an added coordination technique, not a clinical scoring system.</p>
+<p>An example: “Referral faxed” does not confirm that the clinic accepted it. “Report uploaded” does not confirm that the specialist reviewed it. Ask: “Has the referral arrived, is anything missing, and when should we expect a decision?” For a result, ask who reviews it and how you will receive the plan. Silence alone is not proof of a normal result.</p>
+</section>
+<section class="chapter" id="step-3-research-the-decision-that-is-actually-open"><h2>Step 3 Research the decision that is actually open</h2>
+<p>In the video, Peter explores standard treatment, a second opinion, tumor sequencing, and trials. These are possible workstreams, not requirements for everyone. Before researching, state what is known about the diagnosis, its extent, previous treatment, relevant test results, overall health, location, and the patient’s goals. Missing decision-critical details should stay visible.</p>
+<h2>Understand usual care and seek an appropriate second opinion</h2>
+<p>Begin with the official health agency for your country and condition. For cancer, the National Cancer Institute’s PDQ summaries are public evidence summaries. Ask your treating clinician which professional guidelines apply to your case. Match a second-opinion specialist to the exact disease or unresolved decision, rather than to fame alone. Distinguish a review of tissue diagnosis from a review of the treatment plan. Check insurance, referral rules, remote-review options, and whether any delay is medically acceptable. <a href="https://www.cancer.gov/about-cancer/managing-care/finding-cancer-care">NCI finding cancer care</a> · <a href="https://www.cancer.gov/publications/pdq/information-summaries">PDQ summaries</a></p>
+<p>Peter mentions major US centers, including UCSF, Stanford, MD Anderson, Memorial Sloan Kettering, and Dana-Farber. Use the <a href="https://www.cancer.gov/research/infrastructure/cancer-centers/find">NCI center directory</a> as a starting point, then verify the relevant program’s current intake requirements. A second opinion can confirm the existing plan as well as suggest changes. <a href="https://www.cancer.gov/about-cancer/managing-care/finding-cancer-care">NCI</a></p>
+<pre><code class="language-text">For the decision [specific question], summarize the usual care options supported by current public official sources in [country]. Use this verified brief for context. For each option, explain the intended benefit, meaningful harms and burdens, evidence population, and what must be confirmed before it applies. Link sources and dates. Separate approved care, off-label use, investigational care, and unsupported claims. Finish with three questions for the clinician, not a treatment recommendation.
+</code></pre>
+<h2>Ask what tumor testing would change</h2>
+<p>A biomarker is a measurable biological feature, such as a protein or genetic change. Tumor profiling looks for features that may help select treatment; inherited or germline testing asks whether a person was born with a genetic change that may also matter to relatives. They answer different questions. Testing may find no actionable result, and an uncertain variant should not determine treatment. <a href="https://www.cancer.gov/about-cancer/treatment/types/biomarker-testing-cancer-treatment">NCI biomarker testing</a></p>
+<p>Ask: “Which testing has already been done? Would additional testing change a current choice? Is the available tissue sufficient? Would a new biopsy be needed? What are the turnaround, coverage, and alternatives? Would any finding warrant genetic counseling?” Broad sequencing and tissue storage are not automatic next steps for every reader. Peter’s vendor and expense are anecdotes, not endorsements.</p>
+<h2>Search clinical trials without assuming eligibility</h2>
+<p>Clinical trials test interventions in people. Phase 1 generally examines safety and dose; phase 2 looks for activity while continuing safety evaluation; phase 3 compares approaches; phase 4 studies treatment after approval. “Phase” describes research stage, not cancer stage. All phases involve uncertainty and possible harms. <a href="https://www.cancer.gov/research/participate/clinical-trials/how-trials-work">NCI trial phases</a></p>
+<p><a href="https://clinicaltrials.gov">ClinicalTrials.gov</a> includes studies in the US and other countries; it is not an exhaustive list of every trial worldwide. Search by condition, relevant markers or treatment setting, and a feasible travel radius. Inspect eligibility, the study’s overall status, and the individual location. A recruiting label is not confirmation that a particular person can enroll. Contact the study team for screening with the treating clinician’s input. <a href="https://clinicaltrials.gov/find-studies/for-patients/common-questions">Patient search help</a></p>
+<pre><code class="language-text">Find up to three trial candidates for this verified diagnosis in [country / region / travel radius]. Use official registry records and current center pages. For each, give the registry identifier and link, intervention, phase, overall status, nearest site&#39;s status, key eligibility requirements, date checked, travel burden, and contact. Mark missing facts and potential exclusions. Compare the question being tested with available usual care. Never say the patient is eligible; list what the site must confirm.
+</code></pre>
+<p>Bring a table to the appointment with columns for candidate, why it might fit, missing facts, standard-care alternative, burden, and next verification. Ask about random assignment, additional tests, visit frequency, research-related costs, routine-care costs, and whether starting another treatment changes eligibility. Research can happen in parallel with care; it should not delay time-sensitive evaluation or treatment.</p>
+<h2>Make AI show its evidence</h2>
+<p>Check who published the information, when it was reviewed, what population was studied, what outcome was measured, and whether the source sells the intervention. Open the cited page and verify the claim yourself. A real citation can still refer to a different disease, dose, population, or outcome. <a href="https://medlineplus.gov/evaluatinghealthinformation.html">MedlinePlus evidence checklist</a></p>
+<p>Ask for absolute benefit, time horizon, harms, and uncertainty. For illustration only, reducing a risk from 10 in 100 to 8 in 100 is a 20% relative reduction but a 2-percentage-point absolute reduction. The implied number needed to treat is 50 over that same period, assuming the comparison is valid. These invented numbers describe no actual treatment. The website’s exercise lets readers explore this distinction.</p>
+</section>
+<section class="chapter" id="step-4-build-a-coordinated-circle-of-support"><h2>Step 4 Build a coordinated circle of support</h2>
+<p>Peter uses expert introductions and AI-drafted updates to keep people informed. Adapt this with the patient’s permission and a clear clinical coordinator. Separate professional advice from peer experience and practical help. Publicly sharing a diagnosis is optional; private introductions can provide support too. <a href="https://www.youtube.com/watch?v=Ddc5NFNnCfE&t=859s">Video at 14:19</a></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Useful request</th>
+<th>Where to start</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Treating clinician or nurse</td>
+<td>“Who owns the next decision, and what needs to happen first?”</td>
+<td>Current care team</td>
+</tr>
+<tr>
+<td>Specialist for a second opinion</td>
+<td>“Can you review this diagnosis or treatment question?”</td>
+<td>Official disease-specific center program</td>
+</tr>
+<tr>
+<td>Pharmacist</td>
+<td>“Please reconcile this complete medicine and supplement list”</td>
+<td>Treating system or usual pharmacy</td>
+</tr>
+<tr>
+<td>Navigator or social worker</td>
+<td>“Can you help with scheduling, transport, coverage, or financial assistance?”</td>
+<td>Treating center’s support service</td>
+</tr>
+<tr>
+<td>Trusted family or friend</td>
+<td>“Can you handle transport, take notes, or make one records call?”</td>
+<td>Patient-approved support circle</td>
+</tr>
+</tbody></table></div>
+<p><strong>Medication reconciliation</strong> means comparing the medicines actually taken with the documented list and resolving discrepancies with a professional. Include prescribed medicines, nonprescription products, supplements, dose, timing, reason, and prescriber. Have the clinician or pharmacist review interactions and proposed changes. Do not stop, start, or change doses because an AI summary suggests it. <a href="https://www.nia.nih.gov/health/medicines-and-medication-management/taking-medicines-safely-you-age">NIA medicine safety</a></p>
+<h2>Use Peter’s additional resources thoughtfully</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>What its own site offers</th>
+<th>What to verify before using it</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://opencancer.ai">OpenCancer</a></td>
+<td>Free AI navigation and scientist-reviewed support, with different private and public participation modes</td>
+<td>Exact review process, data sharing, scope, and the mode you select</td>
+</tr>
+<tr>
+<td><a href="https://sijbrandijfoundation.org/fcct">Future of Cancer Care Today</a></td>
+<td>Free nonclinical information support, playbooks, and resources for patients</td>
+<td>Applicability, provider credentials, costs of outside services, and evidence with your clinicians</td>
+</tr>
+<tr>
+<td><a href="https://www.cancer.gov/contact">NCI Cancer Information Service</a></td>
+<td>Cancer information and navigation assistance</td>
+<td>Local applicability and operating availability; US phone 1-800-422-6237</td>
+</tr>
+</tbody></table></div>
+<p>The first two service descriptions are their own published descriptions, not independent validation of clinical outcomes. A supplier appearing in a directory does not establish that its intervention is proven or appropriate.</p>
+<pre><code class="language-text">Draft a short update for [approved recipient] using the verified brief. Include the current clinical question, new confirmed findings with dates, pending results, and one specific request. Omit unnecessary identifiers and speculative treatments. Flag any statement without a source. Do not send; show me the draft for review.
+</code></pre>
+<p>If experts disagree, document the exact disagreement, the supporting evidence, and what information would resolve it. Bring it back to the treating team. More opinions help when someone integrates them into a coherent plan.</p>
+</section>
+<section class="chapter" id="step-5-protect-quality-of-life-and-family-time"><h2>Step 5 Protect quality of life and family time</h2>
+<p>Peter describes spending a week with his mother, taking walks, sharing meals, and calling his parents daily. The transferable step is to protect activities the patient values and use AI to reduce administrative load. Ask the person what feels supportive; a full schedule of well-intentioned help can itself become tiring. <a href="https://www.youtube.com/watch?v=Ddc5NFNnCfE&t=941s">Video at 15:41</a></p>
+<p>An added planning practice: write down three priorities, such as comfort, staying independent, or attending a family event. Ask how each care option affects them. Agree on who handles records, transport, questions, and backup care. Choose a reasonable research window and a separate time for ordinary life, adjusted to urgency and energy.</p>
+<p><strong>Palliative care</strong> addresses symptoms, emotional needs, and quality of life during serious illness. It can accompany active cancer treatment and does not require waiting until treatment ends. Ask whether it would help with pain, fatigue, sleep, coping, or caregiver strain. <a href="https://www.cancer.gov/about-cancer/advanced-cancer/care-choices/palliative-care-fact-sheet">NCI palliative care</a></p>
+<pre><code class="language-text">Help us make a manageable week around these confirmed appointments and the patient&#39;s priorities. Ask what energy and practical support are available. Separate essential care tasks, delegable administration, rest, and one valued family activity. Suggest a backup if symptoms or fatigue change. Do not change medical instructions or schedule anything without review.
+</code></pre>
+</section>
+<section class="chapter" id="adapt-the-system-for-everyday-health"><h2>Adapt the system for everyday health</h2>
+<p>The following is an extension of Peter’s method. A healthy reader usually needs a prevention plan and reliable follow-up, rather than a cancer research workflow. Someone managing a long-term condition needs agreed monitoring, medication clarity, and symptom instructions. Children, pregnancy, frailty, and complex illness need plans tailored by the relevant clinician.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Peter’s step</th>
+<th>Prevention and maintenance</th>
+<th>Chronic-condition management</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Brief</td>
+<td>Goals, history, family risks, medicines, last review</td>
+<td>Current condition, agreed targets, medicines, symptoms</td>
+</tr>
+<tr>
+<td>Records</td>
+<td>Vaccines, screening history, relevant measurements</td>
+<td>Lab trends, home readings if requested, treatment changes</td>
+</tr>
+<tr>
+<td>Research</td>
+<td>Which preventive services apply and why</td>
+<td>One open choice about care or monitoring</td>
+</tr>
+<tr>
+<td>Experts</td>
+<td>Primary care and relevant dental, eye, or other care</td>
+<td>Named coordinating clinician, pharmacist, relevant specialist</td>
+</tr>
+<tr>
+<td>Quality time</td>
+<td>Sustainable habits and relationships</td>
+<td>Function, symptom burden, and workable daily routines</td>
+</tr>
+</tbody></table></div>
+<h2>Build a clinician-reviewed prevention register</h2>
+<p><a href="https://odphp.health.gov/myhealthfinder">MyHealthfinder</a> offers US screening and vaccination guidance. Use it to prepare a conversation, then tailor decisions to age, relevant anatomy, pregnancy where applicable, family and personal history, previous results, and your country’s guidance. Symptoms require clinical assessment rather than simply waiting for a screening date.</p>
+<p>Create a register with service, reason, last completed date, next due date, deciding clinician, and source. Include only agreed or explicitly undecided items. Record “discuss at next visit” when the appropriate interval is unknown. For Medicare users, a wellness visit can help create a prevention plan; additional services may have separate costs. <a href="https://odphp.health.gov/myhealthfinder/doctor-visits/regular-checkups/get-your-medicare-wellness-visit-every-year">MyHealthfinder wellness visit</a></p>
+<pre><code class="language-text">Prepare a prevention-review agenda from my verified age, health history, family history, medicines, vaccines, and prior screening results. Use current official guidance for [country]. Separate likely applicable services, decisions needing individual discussion, and items already current. Do not invent due dates or recommend a blanket test panel. For each proposed topic, state what missing information could change it. Ask my clinician to confirm the final plan.
+</code></pre>
+<p>More testing is not automatically more prevention. False alarms, incidental findings, and follow-up procedures can create harm. Ask what a proposed test would change and what evidence supports using it in someone like you. Whole-body CT screening illustrates these risks; it should not be confused with targeted, evidence-based screening or imaging for symptoms. <a href="https://www.fda.gov/radiation-emitting-products/medical-x-ray-imaging/whole-body-ct-screening-should-i-or-shouldnt-i-get-one">FDA discussion</a></p>
+<h2>Turn health goals into sustainable actions</h2>
+<p>Choose one feasible behavior with the clinician’s input when needed: activity, food habits, sleep routine, tobacco cessation, or medication organization. Define what you will do, when, and how to tell whether it happened. For adults 65 and older, CDC’s general activity guidance includes at least 150 minutes of moderate aerobic activity weekly, strength work on at least two days, and balance activity; adapt to abilities and conditions. This is not an exercise prescription during active treatment or unstable illness. <a href="https://www.cdc.gov/physical-activity-basics/guidelines/older-adults.html">CDC older-adult activity</a></p>
+<p>For chronic care, agree on which measurements matter, how to collect them, target ranges, and when to contact the team. Keep date, time, units, device, and relevant context. AI can format a trend for review; it should not diagnose from a noisy wearable reading or adjust medication. Bring new symptoms and persistent changes to the appropriate professional.</p>
+</section>
+<section class="chapter" id="make-every-appointment-produce-a-usable-plan"><h2>Make every appointment produce a usable plan</h2>
+<p>Before the visit, update the brief and choose three questions. Bring the medication list and relevant reports. Ask permission before recording; follow the clinic’s policy and applicable rules. A companion can take written notes instead.</p>
+<p>During the visit, ask: “What is the main decision today? What are the options and tradeoffs? What happens next, who is responsible, and by when? Which symptoms should trigger an urgent call?” Repeat the plan in your own words and invite correction.</p>
+<p>After the visit, compare your notes with the official instructions. Capture medication changes, tests, referrals, dates, responsible people, symptom instructions, and unresolved questions. If two instructions conflict, ask the clinic to reconcile them. Update the current brief and preserve the prior plan in the log.</p>
+<pre><code class="language-text">Turn these appointment notes and official instructions into a draft action list. Separate explicit clinician instructions from my interpretation and unresolved questions. Preserve medication details exactly; flag conflicts. Include owner, due date, and completion condition. Produce a short portal-message draft for any ambiguity. Do not infer that a missing instruction means a medicine should stop. I will verify the list before acting.
+</code></pre>
+</section>
+<section class="chapter" id="protect-privacy-and-prevent-avoidable-ai-errors"><h2>Protect privacy and prevent avoidable AI errors</h2>
+<p>Ask the patient which records may be used, who may see them, and whether they want AI involved. Use approved portal proxy access rather than sharing passwords. Review each product’s current privacy, retention, training, deletion, and sharing settings before uploading records. Keep full identifiers in the secure clinical context where needed; use only the minimum necessary medical facts for research. Consumer apps do not automatically receive the same HIPAA protections as a healthcare provider. HIPAA is the US Health Insurance Portability and Accountability Act. <a href="https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/cell-phone-hipaa/index.html">HHS health-app privacy guidance</a></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Failure mode</th>
+<th>Practical check</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>An old diagnosis becomes the current diagnosis</td>
+<td>Check document and specimen dates; preserve current uncertainty</td>
+</tr>
+<tr>
+<td>A scanned table is misread</td>
+<td>Compare values, decimal points, units, and reference ranges with the original</td>
+</tr>
+<tr>
+<td>A medicine is silently omitted</td>
+<td>Compare the draft with labels and the clinician-verified list</td>
+</tr>
+<tr>
+<td>Research looks applicable but is not</td>
+<td>Verify disease, treatment setting, participants, outcome, and jurisdiction</td>
+</tr>
+<tr>
+<td>A tool claims it sent or saved something</td>
+<td>Check the actual document, portal, or recipient confirmation</td>
+</tr>
+<tr>
+<td>Shared history becomes broader than intended</td>
+<td>Check access lists and recipients before every disclosure</td>
+</tr>
+</tbody></table></div>
+<p>The companion website is an educational tool, not a medical-record system. Its builder uses only the text you enter in the current browser session, with no upload or AI call. Reloading clears those fields. Download only if you want a local copy, and store it appropriately. Do not enter real identifiers into a shared device. The examples are fictional and contain no real patient identifiers.</p>
+</section>
+<section class="chapter" id="your-first-week"><h2>Your first week</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>When</th>
+<th>Deliverable</th>
+<th>Definition of done</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Today</td>
+<td>Current brief and urgent-contact plan</td>
+<td>Important facts verified; three actions assigned</td>
+</tr>
+<tr>
+<td>Next two days</td>
+<td>Records index and any necessary requests</td>
+<td>Required material identified; receiving requirements checked</td>
+</tr>
+<tr>
+<td>Before the next visit</td>
+<td>Three-question agenda</td>
+<td>Questions reflect the actual decision and patient’s goals</td>
+</tr>
+<tr>
+<td>After the visit</td>
+<td>Agreed action list</td>
+<td>Instructions clarified; owner and date recorded</td>
+</tr>
+<tr>
+<td>End of week</td>
+<td>Short review and protected personal time</td>
+<td>Open handoffs checked; one valued activity protected</td>
+</tr>
+</tbody></table></div>
+<p>Use coordination measures rather than a made-up health score: How many results await review? Which referrals lack acknowledgment? Which actions have no owner or date? Which clinician-agreed prevention items are overdue? These indicate administrative gaps, not disease severity or medical urgency.</p>
+</section>
+<section class="chapter" id="what-to-explore-next"><h2>What to explore next</h2>
+<p>Start with one appointment cycle and see whether the system reduces confusion. Then add a prevention register or clinician-agreed monitoring table. A useful solo project is a source-linked brief that highlights changes between visits and flags missing owners or follow-up dates, with every clinical statement reviewed by a person. Judge it by factual accuracy and handoffs completed, not by how much medical advice it generates.</p>
+</section>
+<section class="chapter" id="sources-and-scope"><h2>Sources and scope</h2>
+<p>The five-step structure and personal examples come from Peter Yang’s <a href="https://www.youtube.com/watch?v=Ddc5NFNnCfE">November 4 video</a>, read through YouTube’s full timestamped transcript. His <a href="https://creatoreconomy.so/p/my-mom-survived-breast-cancer-three">earlier article</a> provides additional background. The <a href="https://github.com/petergyang/fuck-cancer">repository README</a> and <a href="https://github.com/petergyang/fuck-cancer/blob/main/skills/fuck-cancer/SKILL.md">workflow instructions</a> document the reusable tool. Prompts, handoff tracking, the evidence exercise, and the everyday-health pathway here are tutorial adaptations, not verbatim video material.</p>
+<p>Medical and practical references: <a href="https://www.cancer.gov/about-cancer/treatment/types/biomarker-testing-cancer-treatment">NCI biomarker testing</a>, <a href="https://www.cancer.gov/about-cancer/managing-care/finding-cancer-care">finding cancer care</a>, <a href="https://www.cancer.gov/research/infrastructure/cancer-centers/find">cancer-center directory</a>, <a href="https://www.cancer.gov/research/participate/clinical-trials/how-trials-work">trial phases</a>, <a href="https://www.cancer.gov/about-cancer/advanced-cancer/care-choices/palliative-care-fact-sheet">palliative care</a>, <a href="https://clinicaltrials.gov/find-studies/for-patients/common-questions">ClinicalTrials.gov search help</a>, <a href="https://medlineplus.gov/evaluatinghealthinformation.html">MedlinePlus evaluating information</a>, <a href="https://medlineplus.gov/ency/article/001927.htm">emergencies</a>, <a href="https://odphp.health.gov/myhealthfinder">MyHealthfinder</a>, <a href="https://odphp.health.gov/myhealthfinder/doctor-visits/regular-checkups/get-your-medicare-wellness-visit-every-year">Medicare wellness preparation</a>, <a href="https://www.nia.nih.gov/health/medicines-and-medication-management/taking-medicines-safely-you-age">NIA medicine safety</a>, <a href="https://www.cdc.gov/physical-activity-basics/guidelines/older-adults.html">CDC activity</a>, <a href="https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/cell-phone-hipaa/index.html">HHS app privacy</a>, and <a href="https://www.fda.gov/radiation-emitting-products/medical-x-ray-imaging/whole-body-ct-screening-should-i-or-shouldnt-i-get-one">FDA whole-body CT discussion</a>.</p>
+<p>Service descriptions: <a href="https://opencancer.ai">OpenCancer</a> and <a href="https://sijbrandijfoundation.org/fcct">Future of Cancer Care Today</a>. Product setup: <a href="https://learn.chatgpt.com/docs/projects">official OpenAI Projects documentation</a> and <a href="https://developers.openai.com/plugins/concepts/skills">skills documentation</a>. Services and clinical guidance can change; verify details for your situation before use.</p>
+</section></article></div></div>
+</main><footer><div><strong>AI Health Navigation</strong><p>One brief. Verified facts. A manageable next step.</p></div><div><a href="https://www.youtube.com/watch?v=Ddc5NFNnCfE">Original video</a><a href="https://github.com/petergyang/fuck-cancer">Peter’s open-source workflow</a><button class="quiet" id="sources">All sources</button></div><p>Thank you, Peter Yang, for sharing your experience and resources. Educational resource · Reviewed November 4, 2026 · No affiliation with the services listed</p></footer><div id="toast" role="status" aria-live="polite"></div><script>const $=s=>document.querySelector(s);
+const $$=s=>[...document.querySelectorAll(s)];
+const routes={
+ cancer:{title:'A verified picture of the current decision',desc:'Begin with the newest findings and what is still unresolved. Peter’s hypothetical demo must not be treated as his mother’s current diagnosis.',actions:['Draft the brief from the latest report; label pending results.','Ask the receiving specialist which reports, scans, or tissue are needed.','Prepare three questions about the current decision and its timing.']},
+ chronic:{title:'A clear plan for ongoing care',desc:'Adaptation: use one brief to connect medicines, symptoms, agreed monitoring, and follow-up across the team.',actions:['Verify the current medicine and allergy list with a professional.','Record which measurements the clinician wants and when to call.','Make the next review date and responsible clinician explicit.']},
+ prevention:{title:'A prevention plan you have agreed on',desc:'Adaptation: start with history and prior care, then use official guidance to prepare the clinician conversation.',actions:['Collect screening and vaccination history without guessing dates.','Ask which preventive services fit your history and current situation.','Choose one sustainable health habit and one follow-up action.']}
+};
+function setRoute(key){const r=routes[key];$('#route-title').textContent=r.title;$('#route-desc').textContent=r.desc;$('#route-actions').replaceChildren(...r.actions.map(t=>{const li=document.createElement('li');li.textContent=t;return li}));$$('[data-route]').forEach(b=>{const yes=b.dataset.route===key;b.classList.toggle('selected',yes);b.setAttribute('aria-pressed',String(yes))})}
+$$('[data-route]').forEach(b=>b.addEventListener('click',()=>setRoute(b.dataset.route)));setRoute('cancer');
+
+const steps=[
+ {tag:'01 · ONE CURRENT PICTURE',title:'Keep a brief you can actually use.',desc:'Peter uses five sections: essential information, next actions, known facts, medical terms, and a dated log. Keep older history separate from today’s priorities.',input:'Newest records + the person’s account',output:'A short brief + at most three next actions',human:'Compare medical facts, medication details, dates, units, and uncertainties against the original records.',time:124,chapter:'step-1-create-one-living-health-brief'},
+ {tag:'02 · THE SOURCE MATERIAL',title:'Get the evidence into the right hands.',desc:'Request written reports, original imaging, and pathology material separately when needed. Ask the receiving team what is required before transferring limited tissue.',input:'A list of institutions and required materials',output:'An index of received and outstanding records',human:'Confirm that the receiving center has complete, usable material. A request sent is not a handoff completed.',time:313,chapter:'step-2-organize-records-and-close-the-handoffs'},
+ {tag:'03 · A FOCUSED QUESTION',title:'Research what could change the decision.',desc:'Understand usual care, review second-opinion options, and discuss testing or trials if relevant. Match evidence to the actual diagnosis, treatment setting, and country.',input:'A verified brief + one open decision',output:'A concise comparison + questions for the team',human:'Open every source. Confirm relevance, harms, uncertainty, and trial eligibility with professionals.',time:461,chapter:'step-3-research-the-decision-that-is-actually-open'},
+ {tag:'04 · CLEAR ROLES',title:'Make support coordinated.',desc:'Peter uses expert introductions and concise updates. Add practical roles for navigation, medication review, notes, transport, and family help.',input:'A patient-approved circle of people',output:'One clinical coordinator + a focused request',human:'Verify credentials and recipients. Keep professional advice distinct from peer experience; review before sending.',time:859,chapter:'step-4-build-a-coordinated-circle-of-support'},
+ {tag:'05 · THE PATIENT’S PRIORITIES',title:'Protect the life around the care.',desc:'Peter makes room for walks, meals, conversation, and family calls. Ask what the person values and make the administrative work serve that.',input:'The person’s goals + available energy',output:'Protected time, practical help, and symptom support',human:'Follow the person’s preferences. Ask whether supportive or palliative care could help during active treatment.',time:941,chapter:'step-5-protect-quality-of-life-and-family-time'}
+];let stepIndex=0;
+function setStep(i){stepIndex=i;const s=steps[i];for(const k of ['tag','title','desc','input','output','human'])$('#step-'+k).textContent=s[k];$('#step-video').href='https://www.youtube.com/watch?v=Ddc5NFNnCfE&t='+s.time+'s';$$('[data-step]').forEach(b=>{const yes=Number(b.dataset.step)===i;b.classList.toggle('selected',yes);b.setAttribute('aria-pressed',String(yes))})}
+$$('[data-step]').forEach(b=>b.addEventListener('click',()=>setStep(Number(b.dataset.step))));setStep(0);
+function showView(name,scroll=true){$$('.view').forEach(v=>v.hidden=v.id!==name+'-view');$$('.view-nav [data-view]').forEach(b=>{const yes=b.dataset.view===name;b.classList.toggle('active',yes);b.setAttribute('aria-pressed',String(yes))});if(scroll)$('.view-nav').scrollIntoView({behavior:document.documentElement.classList.contains('no-motion')?'auto':'smooth',block:'start'})}
+$$('[data-view]').forEach(b=>b.addEventListener('click',()=>showView(b.dataset.view)));
+function goChapter(id){showView('reference',false);requestAnimationFrame(()=>document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'}));history.replaceState(null,'','#'+id)}
+$('#step-read').addEventListener('click',()=>goChapter(steps[stepIndex].chapter));$('#sources').addEventListener('click',()=>goChapter('sources-and-scope'));
+// Resolve direct chapter links, including links within the contents list.
+$$('.contents a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();goChapter(a.hash.slice(1))}));
+if(location.hash){const id=location.hash.slice(1);if(document.getElementById(id)) {showView('reference',false);requestAnimationFrame(()=>document.getElementById(id).scrollIntoView())}}
+
+const recordTypes=[
+ {title:'Written reports',text:'The interpretation and documented history: pathology, scan reports, visits, operations, treatment summaries, and relevant labs.',contact:'Start with medical records or health information management. Ask about authorization, fees, and delivery.',check:'Confirm the correct patient and dates, all pages, and readable text. Keep originals next to summaries.'},
+ {title:'Original imaging',text:'The actual scan studies, usually in DICOM format. A report or screenshot cannot substitute for the full image set.',contact:'Start with the radiology image library. Ask the receiving center how it accepts the studies.',check:'Confirm the receiving center can open the studies and has the associated reports. Preserve the DICOM structure.'},
+ {title:'Pathology material',text:'Physical tissue slides or blocks from a biopsy or operation, when needed for review or additional testing.',contact:'Start with the pathology laboratory. Ask what the receiving lab requires and how material will be tracked.',check:'Have the labs confirm identifiers, receipt, adequacy, and any return requirements. Tissue may be limited.'}
+];
+function setRecord(i){const r=recordTypes[i];const wrap=$('#record-detail');wrap.replaceChildren();[['MATERIAL',r.title,r.text],['WHO TO ASK','The starting contact',r.contact],['DONE WHEN','Receipt is confirmed',r.check]].forEach(([label,title,t])=>{const d=document.createElement('div');const s=document.createElement('span');s.textContent=label;const h=document.createElement('h3');h.textContent=title;const p=document.createElement('p');p.textContent=t;d.append(s,h,p);wrap.append(d)});$$('[data-record]').forEach(b=>{const yes=Number(b.dataset.record)===i;b.classList.toggle('selected',yes);b.setAttribute('aria-pressed',String(yes))})}
+$$('[data-record]').forEach(b=>b.addEventListener('click',()=>setRecord(Number(b.dataset.record))));setRecord(0);
+
+const handoffs=[['Requested','The referral has been requested.','Record the destination, sender, required attachments, and the date. Ask the sending office how receipt will be confirmed.'],['Acknowledged','The receiving clinic has it.','Check whether the referral is complete, accepted for review, and assigned to the right program. Ask who owns the next step.'],['Scheduled','The next step has a time.','Confirm the appointment or processing date, any preparation, and which records are still needed.'],['Received','The result or material has arrived.','Check that the intended clinician has access. For images or tissue, the receiving service should confirm usability.'],['Reviewed','The responsible clinician has reviewed it.','Ask how the finding changes the plan, what remains uncertain, and when you will hear the official instructions.'],['Action agreed','The follow-up is understood.','Write the agreed action, responsible person, due date, and completion condition. Update the current brief and retain the history.']];
+handoffs.forEach((s,i)=>{const b=document.createElement('button');b.type='button';b.textContent=s[0];b.dataset.number=String(i+1).padStart(2,'0');b.dataset.handoff=i;b.addEventListener('click',()=>setHandoff(i));$('#handoff-buttons').append(b)});
+function setHandoff(i){$('#handoff-index').textContent=String(i+1).padStart(2,'0');$('#handoff-title').textContent=handoffs[i][1];$('#handoff-text').textContent=handoffs[i][2];$$('[data-handoff]').forEach(b=>{const yes=Number(b.dataset.handoff)===i;b.classList.toggle('selected',yes);b.setAttribute('aria-pressed',String(yes))})}setHandoff(0);
+function updateRisk(){const p=Number($('#baseline').value);const after=p*.8,absolute=p*.2;$('#base-value').textContent=p+' in 100';$('#risk-before').textContent=p+' in 100';$('#risk-after').textContent=Number(after.toFixed(1))+' in 100';$('#before-bar').style.width=(p/50*100)+'%';$('#after-bar').style.width=(after/50*100)+'%';$('#absolute').textContent=Number(absolute.toFixed(1))+' percentage point'+(absolute===1?'':'s');$('#nnt').textContent=Math.ceil(100/absolute);$('.risk-chart').setAttribute('aria-label',`Invented example: baseline risk ${p} in 100, after intervention ${after.toFixed(1)} in 100. Both use the same unspecified time horizon.`)}$('#baseline').addEventListener('input',updateRisk);updateRisk();
+
+const fields=['brief-name','brief-goal','brief-facts','brief-pending','brief-meds','brief-team','action-1','action-2','action-3','brief-values','brief-log'];
+function value(id,fallback='[Not entered — verify]'){return $('#'+id).value.trim()||fallback}
+function makeBrief(){return `${value('brief-name','Health brief')}\nDRAFT — REVIEW AGAINST ORIGINAL RECORDS\n\nDECISION OR GOAL\n${value('brief-goal')}\n\nWHAT WE KNOW AND SOURCES\n${value('brief-facts')}\n\nPENDING AND OPEN QUESTIONS\n${value('brief-pending')}\n\nMEDICINES AND ALLERGIES TO VERIFY\n${value('brief-meds')}\n\nTEAM AND CLINICIAN-PROVIDED URGENT INSTRUCTIONS\n${value('brief-team')}\n\nTHREE NEXT ACTIONS\n1. ${value('action-1')}\n2. ${value('action-2')}\n3. ${value('action-3')}\n\nWHAT MATTERS\n${value('brief-values')}\n\nCARE LOG\n${value('brief-log')}\n\nA missing field does not establish that a condition, medicine, or risk is absent. Review clinical facts and instructions with the care team.\n`}
+function updateBrief(){$('#brief-output').textContent=makeBrief()}
+$('#brief-form').addEventListener('input',updateBrief);$('#brief-form').addEventListener('submit',e=>e.preventDefault());updateBrief();
+const sample=['Alex’s health brief — fictional example','Prepare for a primary-care prevention review.','Patient-reported: prior screening and vaccination dates are incomplete. No diagnosis is inferred.','Which preventive services apply after prior records are reviewed?','[Bring the complete list for clinician or pharmacist verification.]','[Add verified care-team contacts and their urgent-symptom instructions.]','Find vaccination record · Alex · before visit · original record available','Prepare three questions · Alex · before visit · agenda written','Agree follow-up plan · Alex + clinician · at visit · responsible person and date recorded','Stay independent; protect a short family visit this week.','Fictional preparation example only; no actual medical event.'];
+$('#sample').addEventListener('click',()=>{fields.forEach((id,i)=>$('#'+id).value=sample[i]);updateBrief();toast('Fictional example loaded')});
+$('#clear').addEventListener('click',()=>{fields.forEach(id=>$('#'+id).value='');updateBrief();toast('Fields cleared')});
+let toastTimer;function toast(t){$('#toast').textContent=t;$('#toast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#toast').classList.remove('show'),3200)}
+async function copy(t){try{await navigator.clipboard.writeText(t);toast('Copied')}catch{toast('Copy unavailable. Select and copy the text manually.')}}
+$('#copy-brief').addEventListener('click',()=>copy(makeBrief()));
+function download(text,name){const blob=new Blob([text],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+$('#download-brief').addEventListener('click',()=>download(makeBrief(),'health-brief-draft.txt'));
+$('#blank-template').addEventListener('click',()=>download('HEALTH BRIEF — DRAFT\n\nDecision or goal:\n\nPatient information and care team:\n\nMedicines and allergies (name, dose, route, frequency, reason, prescriber; allergy reaction):\n\nKnown facts (source, date, page):\n\nPending results (owner, expected date, review plan):\n\nThree actions (task, owner, due date, done when):\n1.\n2.\n3.\n\nThree appointment questions:\n1.\n2.\n3.\n\nClinician-provided symptom and urgent-contact instructions:\n\nWhat matters to the person:\n\nTerms to clarify:\n\nCare log (date, change, decision):\n\nCheck facts against original records and clarify instructions with the care team.\n','health-brief-template.txt'));
+$('#print-brief').addEventListener('click',()=>window.print());$('#print-guide').addEventListener('click',()=>window.print());
+$$('.reference pre').forEach(pre=>{const code=pre.querySelector('code');if(!code)return;const text=code.textContent;const b=document.createElement('button');b.type='button';b.className='copy-prompt';b.textContent='Copy prompt or command';b.addEventListener('click',()=>copy(text));pre.append(b)});
+const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;let motion=!reduced;function syncMotion(){document.documentElement.classList.toggle('no-motion',!motion);$('#motion').textContent='Motion '+(motion?'on':'off');$('#motion').setAttribute('aria-pressed',String(motion))}syncMotion();$('#motion').addEventListener('click',()=>{motion=!motion;syncMotion()});
+</script></body></html>
