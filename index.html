@@ -78,7 +78,7 @@
 </section>
 <section class="chapter" id="step-1-create-one-living-health-brief"><h2>Step 1 Create one living health brief</h2>
 <p>Peter’s repository organizes the brief into patient information, up to three next actions, known facts, explanations of medical terms, and a compact care log. Keep the current snapshot short enough to scan during an appointment; place detailed history and old decisions in the log. For routine health, substitute ongoing conditions, prevention decisions, and personal goals for cancer-specific details. <a href="https://github.com/petergyang/fuck-cancer">Repository</a></p>
-<h2>Set up the workspace</h2>
+<h3>Set up the workspace</h3>
 <p>The simplest route is a private document plus an AI chat. Paste the current brief into each new relevant conversation, or attach it with the reports. ChatGPT Projects can keep related chats, sources, and instructions together; upload or connect the sources explicitly. A project does not automatically gain access to a folder on your computer. <a href="https://learn.chatgpt.com/docs/projects">Official OpenAI documentation</a></p>
 <p>For Peter’s packaged workflow, open his repository and review its instructions. In a compatible agent with skill-installation support, his documented installation request is:</p>
 <pre><code class="language-text">Install the /fuck-cancer skill globally from https://github.com/petergyang/fuck-cancer
@@ -87,7 +87,7 @@
 <pre><code class="language-sh">npx skills add petergyang/fuck-cancer --skill fuck-cancer --global --yes
 </code></pre>
 <p>A skill is a reusable set of instructions and resources. Installing it does not grant medical expertise, automatically connect records, or grant permission to send them. Peter’s Google Doc workflow needs a supported connected Google Drive integration; the repository also supports a local Markdown file. If your interface cannot install skills, use the prompts here directly. <a href="https://github.com/petergyang/fuck-cancer">Peter’s installation instructions</a> · <a href="https://developers.openai.com/plugins/concepts/skills">Skills explained</a></p>
-<h2>Copy this brief prompt</h2>
+<h3>Copy this brief prompt</h3>
 <pre><code class="language-text">Help me prepare a health-navigation brief for [me / my consenting relative].
 Our immediate decision is [decision and date]. Use only the attached records and my notes for personal facts.
 
@@ -100,7 +100,7 @@ Create these sections:
 
 Distinguish confirmed facts, patient-reported information, pending results, unknowns, and research hypotheses. Preserve units, dates, negations, and uncertainty. Flag conflicting records instead of resolving them by guessing. Ask only questions that could change the immediate next step. Do not diagnose, choose treatment, or invent missing information.
 </code></pre>
-<h2>Use a fact ledger behind the brief</h2>
+<h3>Use a fact ledger behind the brief</h3>
 <div class="table-scroll"><table>
 <thead>
 <tr>
@@ -169,31 +169,31 @@ Distinguish confirmed facts, patient-reported information, pending results, unkn
 </tr>
 </tbody></table></div>
 <p>Ask each institution about its process, authorization form, cost, expected timing, and delivery method. Peter’s experience with delays motivates early requests; your hospital’s estimate is the one to track. Ask the receiving specialist what is required before requesting broad archives or transferring limited tissue.</p>
-<h2>Keep a small records index</h2>
+<h3>Keep a small records index</h3>
 <p>Use folders such as Brief, Reports, Imaging, Pathology, Appointments, and Research. Name written files consistently, for example <code>2026-11-04_Hospital_PathologyReport.pdf</code>. Preserve the original file and create a separately labeled summary. Keep an index with document date, institution, record type, location, and verification status. Do not rename internal DICOM files or rearrange their structure casually.</p>
 <pre><code class="language-text">From this records index, identify the missing material needed for [appointment or decision]. Draft separate requests for written records, original imaging, and pathology material only if relevant. For each request, list the official department, authorization needed, likely delivery method, and questions about turnaround and fees. Verify contact details on the institution’s own website. Draft only; I will review and send.
 </code></pre>
-<h2>A request is complete when the handoff is verified</h2>
+<h3>A request is complete when the handoff is verified</h3>
 <p>For each referral or test, track these states: requested, acknowledged, scheduled or processing, received, reviewed, and action agreed. Record the responsible person and the next check date. This is an added coordination technique, not a clinical scoring system.</p>
 <p>An example: “Referral faxed” does not confirm that the clinic accepted it. “Report uploaded” does not confirm that the specialist reviewed it. Ask: “Has the referral arrived, is anything missing, and when should we expect a decision?” For a result, ask who reviews it and how you will receive the plan. Silence alone is not proof of a normal result.</p>
 </section>
 <section class="chapter" id="step-3-research-the-decision-that-is-actually-open"><h2>Step 3 Research the decision that is actually open</h2>
 <p>In the video, Peter explores standard treatment, a second opinion, tumor sequencing, and trials. These are possible workstreams, not requirements for everyone. Before researching, state what is known about the diagnosis, its extent, previous treatment, relevant test results, overall health, location, and the patient’s goals. Missing decision-critical details should stay visible.</p>
-<h2>Understand usual care and seek an appropriate second opinion</h2>
+<h3>Understand usual care and seek an appropriate second opinion</h3>
 <p>Begin with the official health agency for your country and condition. For cancer, the National Cancer Institute’s PDQ summaries are public evidence summaries. Ask your treating clinician which professional guidelines apply to your case. Match a second-opinion specialist to the exact disease or unresolved decision, rather than to fame alone. Distinguish a review of tissue diagnosis from a review of the treatment plan. Check insurance, referral rules, remote-review options, and whether any delay is medically acceptable. <a href="https://www.cancer.gov/about-cancer/managing-care/finding-cancer-care">NCI finding cancer care</a> · <a href="https://www.cancer.gov/publications/pdq/information-summaries">PDQ summaries</a></p>
 <p>Peter mentions major US centers, including UCSF, Stanford, MD Anderson, Memorial Sloan Kettering, and Dana-Farber. Use the <a href="https://www.cancer.gov/research/infrastructure/cancer-centers/find">NCI center directory</a> as a starting point, then verify the relevant program’s current intake requirements. A second opinion can confirm the existing plan as well as suggest changes. <a href="https://www.cancer.gov/about-cancer/managing-care/finding-cancer-care">NCI</a></p>
 <pre><code class="language-text">For the decision [specific question], summarize the usual care options supported by current public official sources in [country]. Use this verified brief for context. For each option, explain the intended benefit, meaningful harms and burdens, evidence population, and what must be confirmed before it applies. Link sources and dates. Separate approved care, off-label use, investigational care, and unsupported claims. Finish with three questions for the clinician, not a treatment recommendation.
 </code></pre>
-<h2>Ask what tumor testing would change</h2>
+<h3>Ask what tumor testing would change</h3>
 <p>A biomarker is a measurable biological feature, such as a protein or genetic change. Tumor profiling looks for features that may help select treatment; inherited or germline testing asks whether a person was born with a genetic change that may also matter to relatives. They answer different questions. Testing may find no actionable result, and an uncertain variant should not determine treatment. <a href="https://www.cancer.gov/about-cancer/treatment/types/biomarker-testing-cancer-treatment">NCI biomarker testing</a></p>
 <p>Ask: “Which testing has already been done? Would additional testing change a current choice? Is the available tissue sufficient? Would a new biopsy be needed? What are the turnaround, coverage, and alternatives? Would any finding warrant genetic counseling?” Broad sequencing and tissue storage are not automatic next steps for every reader. Peter’s vendor and expense are anecdotes, not endorsements.</p>
-<h2>Search clinical trials without assuming eligibility</h2>
+<h3>Search clinical trials without assuming eligibility</h3>
 <p>Clinical trials test interventions in people. Phase 1 generally examines safety and dose; phase 2 looks for activity while continuing safety evaluation; phase 3 compares approaches; phase 4 studies treatment after approval. “Phase” describes research stage, not cancer stage. All phases involve uncertainty and possible harms. <a href="https://www.cancer.gov/research/participate/clinical-trials/how-trials-work">NCI trial phases</a></p>
 <p><a href="https://clinicaltrials.gov">ClinicalTrials.gov</a> includes studies in the US and other countries; it is not an exhaustive list of every trial worldwide. Search by condition, relevant markers or treatment setting, and a feasible travel radius. Inspect eligibility, the study’s overall status, and the individual location. A recruiting label is not confirmation that a particular person can enroll. Contact the study team for screening with the treating clinician’s input. <a href="https://clinicaltrials.gov/find-studies/for-patients/common-questions">Patient search help</a></p>
 <pre><code class="language-text">Find up to three trial candidates for this verified diagnosis in [country / region / travel radius]. Use official registry records and current center pages. For each, give the registry identifier and link, intervention, phase, overall status, nearest site&#39;s status, key eligibility requirements, date checked, travel burden, and contact. Mark missing facts and potential exclusions. Compare the question being tested with available usual care. Never say the patient is eligible; list what the site must confirm.
 </code></pre>
 <p>Bring a table to the appointment with columns for candidate, why it might fit, missing facts, standard-care alternative, burden, and next verification. Ask about random assignment, additional tests, visit frequency, research-related costs, routine-care costs, and whether starting another treatment changes eligibility. Research can happen in parallel with care; it should not delay time-sensitive evaluation or treatment.</p>
-<h2>Make AI show its evidence</h2>
+<h3>Make AI show its evidence</h3>
 <p>Check who published the information, when it was reviewed, what population was studied, what outcome was measured, and whether the source sells the intervention. Open the cited page and verify the claim yourself. A real citation can still refer to a different disease, dose, population, or outcome. <a href="https://medlineplus.gov/evaluatinghealthinformation.html">MedlinePlus evidence checklist</a></p>
 <p>Ask for absolute benefit, time horizon, harms, and uncertainty. For illustration only, reducing a risk from 10 in 100 to 8 in 100 is a 20% relative reduction but a 2-percentage-point absolute reduction. The implied number needed to treat is 50 over that same period, assuming the comparison is valid. These invented numbers describe no actual treatment. The website’s exercise lets readers explore this distinction.</p>
 </section>
@@ -234,7 +234,7 @@ Distinguish confirmed facts, patient-reported information, pending results, unkn
 </tr>
 </tbody></table></div>
 <p><strong>Medication reconciliation</strong> means comparing the medicines actually taken with the documented list and resolving discrepancies with a professional. Include prescribed medicines, nonprescription products, supplements, dose, timing, reason, and prescriber. Have the clinician or pharmacist review interactions and proposed changes. Do not stop, start, or change doses because an AI summary suggests it. <a href="https://www.nia.nih.gov/health/medicines-and-medication-management/taking-medicines-safely-you-age">NIA medicine safety</a></p>
-<h2>Use Peter’s additional resources thoughtfully</h2>
+<h3>Use Peter’s additional resources thoughtfully</h3>
 <div class="table-scroll"><table>
 <thead>
 <tr>
@@ -307,13 +307,13 @@ Distinguish confirmed facts, patient-reported information, pending results, unkn
 <td>Function, symptom burden, and workable daily routines</td>
 </tr>
 </tbody></table></div>
-<h2>Build a clinician-reviewed prevention register</h2>
+<h3>Build a clinician-reviewed prevention register</h3>
 <p><a href="https://odphp.health.gov/myhealthfinder">MyHealthfinder</a> offers US screening and vaccination guidance. Use it to prepare a conversation, then tailor decisions to age, relevant anatomy, pregnancy where applicable, family and personal history, previous results, and your country’s guidance. Symptoms require clinical assessment rather than simply waiting for a screening date.</p>
 <p>Create a register with service, reason, last completed date, next due date, deciding clinician, and source. Include only agreed or explicitly undecided items. Record “discuss at next visit” when the appropriate interval is unknown. For Medicare users, a wellness visit can help create a prevention plan; additional services may have separate costs. <a href="https://odphp.health.gov/myhealthfinder/doctor-visits/regular-checkups/get-your-medicare-wellness-visit-every-year">MyHealthfinder wellness visit</a></p>
 <pre><code class="language-text">Prepare a prevention-review agenda from my verified age, health history, family history, medicines, vaccines, and prior screening results. Use current official guidance for [country]. Separate likely applicable services, decisions needing individual discussion, and items already current. Do not invent due dates or recommend a blanket test panel. For each proposed topic, state what missing information could change it. Ask my clinician to confirm the final plan.
 </code></pre>
 <p>More testing is not automatically more prevention. False alarms, incidental findings, and follow-up procedures can create harm. Ask what a proposed test would change and what evidence supports using it in someone like you. Whole-body CT screening illustrates these risks; it should not be confused with targeted, evidence-based screening or imaging for symptoms. <a href="https://www.fda.gov/radiation-emitting-products/medical-x-ray-imaging/whole-body-ct-screening-should-i-or-shouldnt-i-get-one">FDA discussion</a></p>
-<h2>Turn health goals into sustainable actions</h2>
+<h3>Turn health goals into sustainable actions</h3>
 <p>Choose one feasible behavior with the clinician’s input when needed: activity, food habits, sleep routine, tobacco cessation, or medication organization. Define what you will do, when, and how to tell whether it happened. For adults 65 and older, CDC’s general activity guidance includes at least 150 minutes of moderate aerobic activity weekly, strength work on at least two days, and balance activity; adapt to abilities and conditions. This is not an exercise prescription during active treatment or unstable illness. <a href="https://www.cdc.gov/physical-activity-basics/guidelines/older-adults.html">CDC older-adult activity</a></p>
 <p>For chronic care, agree on which measurements matter, how to collect them, target ranges, and when to contact the team. Keep date, time, units, device, and relevant context. AI can format a trend for review; it should not diagnose from a noisy wearable reading or adjust medication. Bring new symptoms and persistent changes to the appropriate professional.</p>
 </section>
